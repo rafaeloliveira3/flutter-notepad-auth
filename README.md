@@ -180,7 +180,7 @@ Ao abrir o app, o `main.dart` verifica se já existe uma sessão ativa:
 
 ## Banco de Dados
 
-As notas são armazenadas no PostgreSQL do Supabase com isolamento por `user_id`. O `DatabaseService` implementa:
+As notas são armazenadas no PostgreSQL do Supabase com isolamento por `user_id`. Os métodos implementados são:
 
 | Operação | Método Supabase |
 |---|---|
@@ -197,7 +197,7 @@ As notas são armazenadas no PostgreSQL do Supabase com isolamento por `user_id`
 |---|---|
 | **Login** | Email + senha com validação e link para cadastro |
 | **Cadastro** | Email, senha e confirmação com feedback visual |
-| **Home** | Lista de notas com busca e pull-to-refresh |
+| **Home** | Lista de notas com pull-to-refresh |
 | **Formulário** | Criar ou editar nota com alerta de mudanças não salvas |
 
 ---

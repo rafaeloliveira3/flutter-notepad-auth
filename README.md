@@ -150,7 +150,7 @@ await Supabase.initialize(
 
 ```bash
 # 1. Clone ou baixe o projeto
-cd flutter_notes_app
+cd flutter-notepad-auth
 
 # 2. Instale as dependências
 flutter pub get
@@ -191,7 +191,7 @@ As notas são armazenadas no PostgreSQL do Supabase com isolamento por `user_id`
 
 ---
 
-## 📸 Telas do App
+## Telas do App
 
 | Tela | Descrição |
 |---|---|
@@ -202,7 +202,7 @@ As notas são armazenadas no PostgreSQL do Supabase com isolamento por `user_id`
 
 ---
 
-## ⚠️ Observações
+## Observações
 
 - As notas são **privadas por padrão** graças ao RLS — cada usuário vê apenas as suas
 - Nunca compartilhe a `service_role` key no cliente Flutter; use sempre a `anon` key

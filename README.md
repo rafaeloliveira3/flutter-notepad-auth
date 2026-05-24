@@ -198,7 +198,7 @@ As notas são armazenadas no PostgreSQL do Supabase com isolamento por `user_id`
 | **Login** | Email + senha com validação e link para cadastro |
 | **Cadastro** | Email, senha e confirmação com feedback visual |
 | **Home** | Lista de notas com pull-to-refresh |
-| **Formulário** | Criar ou editar nota com alerta de mudanças não salvas |
+| **Formulário** | Criar ou editar nota |
 
 ---
 

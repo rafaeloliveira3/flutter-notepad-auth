@@ -42,7 +42,6 @@ class _NoteFormScreenState extends State<NoteFormScreen> {
       'title': _titleController.text.trim(),
       'content': _contentController.text.trim(),
       if (!isEditing) 'user_id': _client.auth.currentUser!.id,
-      if (isEditing) 'updated_at': DateTime.now().toIso8601String(),
     };
 
     final data = isEditing
@@ -74,26 +73,43 @@ class _NoteFormScreenState extends State<NoteFormScreen> {
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextField(
+            TextFormField(
               controller: _titleController,
               decoration: const InputDecoration(
                   labelText: 'Título', border: OutlineInputBorder()),
             ),
             const SizedBox(height: 16),
-            Expanded(
-              child: TextField(
-                controller: _contentController,
-                decoration: const InputDecoration(
-                    labelText: 'Conteúdo', border: OutlineInputBorder()),
-                maxLines: null,
-                minLines: 5,
-                textAlignVertical: TextAlignVertical.top,
-              ),
+            const Text('Conteúdo'),
+            const SizedBox(height: 8),
+            TextField(
+              controller: _contentController,
+              decoration: const InputDecoration(border: OutlineInputBorder()),
+              minLines: 5,
+              maxLines: null,
+              textAlignVertical: TextAlignVertical.top,
             ),
+            if (widget.note != null) ...[
+              const SizedBox(height: 16),
+              Text(
+                'Criado em: ${_formatDate(widget.note!.createdAt)}',
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                'Atualizado em: ${_formatDate(widget.note!.updatedAt)}',
+                style: const TextStyle(fontSize: 12, color: Colors.grey),
+              ),
+            ],
           ],
         ),
       ),
     );
+  }
+
+  String _formatDate(DateTime date) {
+    final d = date.toLocal();
+    return '${d.day.toString().padLeft(2, '0')}/${d.month.toString().padLeft(2, '0')}/${d.year} às ${d.hour.toString().padLeft(2, '0')}:${d.minute.toString().padLeft(2, '0')}';
   }
 }
